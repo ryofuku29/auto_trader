@@ -2,6 +2,7 @@ import axios from 'axios'; //httpリクエストを送るためのライブラ�
 import dotenv from 'dotenv';
 import fs from 'fs';
 import path from 'path';
+import { analyzeSignal } from './analyze-logic';
 dotenv.config({ quiet: true }); // dotenvライブラリが表示しているログを非表示にする。
 // dotenv.config(); // .envを読み込む
 
@@ -29,7 +30,8 @@ const logFile = path.join(__dirname, 'price-log.json');
       
     log.push(entry);
     fs.writeFileSync(logFile, JSON.stringify(log, null, 2)); //JSON.stringifyはJavaScriptの配列やオブジェクト → JSON形式の文字列に変換する関数。writeFileSync(...) は「文字列」を書き込む関数。
-    console.log(`[${now}] ${symbol} 現在価格: ${price}`);
+      console.log(`[${now}] ${symbol} 現在価格: ${price}`);
+      analyzeSignal(log);
   } catch (err) {
     console.error('価格取得エラー:', err);
   }
