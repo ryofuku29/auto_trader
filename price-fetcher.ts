@@ -10,7 +10,7 @@ const symbol = 'AAPL';
 const url = `https://api.twelvedata.com/price?symbol=${symbol}&apikey=${process.env.API_KEY}`; // process：Node.jsのグローバルオブジェクト（アプリ全体の情報）env：その中の「環境変数」一覧
 const logFile = path.join(__dirname, 'price-log.json');
 
-(async () => { // 即時実行関数（IIFE）で、非同期処理（API通信）を行う準備。
+async function fetchAndAnalyze() { // 非同期処理（API通信）を行う準備。
   try {
     const res = await axios.get(url); // axios.get(url) でAPIにアクセスして、レスポンスを取得します。
     const price = res.data.price;
@@ -35,4 +35,5 @@ const logFile = path.join(__dirname, 'price-log.json');
   } catch (err) {
     console.error('価格取得エラー:', err);
   }
-})();
+};
+setInterval(fetchAndAnalyze, 60 * 1000);
