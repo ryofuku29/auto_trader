@@ -6,7 +6,7 @@ import { analyzeSignal } from './analyze-logic';
 dotenv.config({ quiet: true }); // dotenvライブラリが表示しているログを非表示にする。
 // dotenv.config(); // .envを読み込む
 
-const symbol = 'AAPL';
+const symbol = '7203';
 const url = `https://api.twelvedata.com/price?symbol=${symbol}&apikey=${process.env.API_KEY}`; // process：Node.jsのグローバルオブジェクト（アプリ全体の情報）env：その中の「環境変数」一覧
 const logFile = path.join(__dirname, 'price-log.json');
 
@@ -36,4 +36,4 @@ async function fetchAndAnalyze() { // 非同期処理（API通信）を行う準
     console.error('価格取得エラー:', err);
   }
 };
-setInterval(fetchAndAnalyze, 60 * 1000);
+setInterval(fetchAndAnalyze, 10 * 1000);
