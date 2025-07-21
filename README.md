@@ -15,3 +15,11 @@
 
 - `npx ts-node position-manager.ts`
   - trades-log.json の直近の action から、position の有無を読み取り、position.json に記載する。
+
+## `npm run dev`
+
+- auto-trader-next/src/app でこのコマンドを打つとローカルサーバーを起動できる。
+
+### ページパス
+
+    - `/logs` で、売買履歴を確認できる。
