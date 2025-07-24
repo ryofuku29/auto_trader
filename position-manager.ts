@@ -1,4 +1,3 @@
-import { time } from "console";
 import fs from "fs";
 import path from "path";
 
@@ -20,9 +19,9 @@ if (!fs.existsSync(tradesFile)) {
 const trades: TradeEntry[] = JSON.parse(fs.readFileSync(tradesFile, "utf-8"));
 const lastTrade = trades[trades.length - 1];
 
-const position = lastTrade.action === "BUY"
-    ? { holding: true, symbol: lastTrade.symbol, price: lastTrade.price, time: lastTrade.time }
-    : { holding: false };
+const position: { holding: string, symbol: string, price: number, time: string }[] = [];
+
+    
 
 fs.writeFileSync(positionFile, JSON.stringify(position, null, 2));
 console.log('現在のポジション情報を更新しました。');
