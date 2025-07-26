@@ -2,10 +2,9 @@
 import { useEffect, useState } from "react";
 
 type Position = {
-  holding: string;
+  action: string;
   symbol: string;
   price: number;
-  time: string;
 };
 
 export default function PositionPage() {
@@ -23,25 +22,24 @@ export default function PositionPage() {
       <table className="table table-bordered">
         <thead className="table-light">
           <tr>
-            <th>ポジション</th>
             <th>シンボル</th>
+            {/* 売買時の値段じゃなくてまとめれるようにしたい。 */}
             <th>売買時の値段</th>
-            <th>売買時間</th>
+            <th>ポジション</th>
           </tr>
         </thead>
         <tbody>
           {position.map((position, i) => (
             <tr key={i}>
-              <td
-                className={
-                  position.holding === "BUY" ? "text-success" : "text-danger"
-                }
-              >
-                {position.holding === "BUY" ? "買" : "売"}
-              </td>
               <td>{position.symbol}</td>
               <td>{position.price}</td>
-              <td>{position.time}</td>
+              <td
+                className={
+                  position.action === "BUY" ? "text-success" : "text-danger"
+                }
+              >
+                {position.action === "BUY" ? "買" : "売"}
+              </td>
             </tr>
           ))}
         </tbody>
