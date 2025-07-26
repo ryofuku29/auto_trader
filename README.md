@@ -16,7 +16,7 @@
   - trades-log.json の action と price から損益を計算して、profits-log.json に損益を追加している。
 
 - `npx ts-node position-manager.ts`
-  - trades-log.json の直近の action から、position の有無を読み取り、position.json に記載する。
+  - trades-log.json を参照して、現在の position を position.json に記載する。
 
 ## `npm run dev`
 
@@ -24,7 +24,7 @@
 
 ### ページパス
 
-    - /logs で、売買履歴を確認できる。
-    - /profitsで損益を確認できる。
-    - /positionでポジションを確認できる
-        - ** 未完成 **
+- /logs で、売買履歴を確認できる。
+- /profits で損益を確認できる。
+- /position でポジションを確認できる
+  - ** 未完成 **
