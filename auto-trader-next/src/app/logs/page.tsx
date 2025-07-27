@@ -1,5 +1,6 @@
 "use client"; // useEffect,useStateを使うために必要。
 import { useEffect, useState } from "react";
+import Header from "@/components/Header";
 
 type Trade = {
   time: string;
@@ -19,7 +20,8 @@ export default function LogsPage() {
   }, []); // []これがあることで、一回だけ実行される。
 
   return (
-    <main className="container mt-5">
+    <main className="container">
+      <Header />
       <h1 className="mb-4">取引ログ</h1>
       <table className="table table-bordered">
         <thead className="table-light">
