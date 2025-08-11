@@ -28,3 +28,8 @@
 - /profits で損益を確認できる。
 - /position でポジションを確認できる
   - ** 未完成 **
+- /price で株価を取得できる
+  - 現時点では、price-fetcher のモックデータを使い、擬似的に進めている。
+- /trade で売買できる
+  - API Route /api/trade に POST リクエスト送信。送信内容は JSON 形式で { symbol, price, action }
+  - auto-trader-next/trades-log.json に記録される。
